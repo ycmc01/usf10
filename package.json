@@ -1,0 +1,14 @@
+{
+  "name": "us-module10-desk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "XQ 美股版 模組10：總經與跨資產風險（F36 經濟預期差與政策路徑、F37 信用、金融條件與流動性）",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/core.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

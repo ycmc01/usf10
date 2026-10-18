@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美股總經風險台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f6feb'/%3E%3Cpath d='M5 21c4 0 5-9 9-9s5 6 8 6 4-7 5-9' stroke='white' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/extra.css">
+<style>
+main { max-width: 1280px; margin: 0 auto; padding: 16px 20px 40px; }
+.stars { color: var(--warn); letter-spacing: -1px; white-space: nowrap; }
+.neu { font-weight: 600; } .neu.hi::before { content: '▲ '; font-size: 10px; } .neu.lo::before { content: '▼ '; font-size: 10px; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 1100px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } main { padding: 12px; } }
+.mcard { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+.mcard.worst { border-color: var(--warn); box-shadow: 0 0 0 1px var(--warn) inset; }
+.mcard .v { font-size: 24px; font-weight: 700; font-family: var(--mono); }
+.mcard .hd { display: flex; justify-content: space-between; gap: 6px; align-items: baseline; }
+.mcard .nm { font-weight: 600; }
+.mcard svg { width: 100%; height: 46px; display: block; }
+.pctbar { position: relative; height: 6px; background: var(--panel2); border-radius: 3px; margin-top: 2px; }
+.pctbar i { position: absolute; top: -3px; width: 3px; height: 12px; background: var(--text); border-radius: 1px; }
+.pctbar .bad { position: absolute; top: 0; height: 6px; background: var(--warn-soft); }
+.tbl-wrap { overflow-x: auto; }
+tr.clickrow { cursor: pointer; } tr.clickrow:hover td { background: var(--panel2); }
+tr.past td { color: var(--muted); }
+.chart svg { width: 100%; display: block; }
+.chart .tip { position: absolute; }
+.chart { position: relative; }
+.flex { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.seg2 a { padding: 5px 10px; border: 1px solid var(--line); border-radius: 7px; color: var(--muted); }
+.seg2 a.on { background: var(--accent-soft); color: var(--accent); border-color: transparent; font-weight: 600; }
+footer.disc { text-align: center; color: var(--muted); font-size: 12px; padding: 18px 0 26px; border-top: 1px solid var(--line); margin-top: 30px; }
+.note { font-size: 12px; color: var(--muted); }
+.vixbox { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 760px) { .vixbox { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">美股總經風險台<small>XQ 美股版・模組10</small></div>
+  <nav class="tabs" id="tabs">
+    <a href="#/week" data-r="week">本週總經</a>
+    <a href="#/data" data-r="data">數據詳情</a>
+    <a href="#/reaction" data-r="reaction">公布後反應</a>
+    <a href="#/fed" data-r="fed">聯準會</a>
+    <a href="#/cross" data-r="cross">跨資產</a>
+    <a href="#/conditions" data-r="conditions">觀察條件</a>
+    <a href="#/status" data-r="status">資料狀態</a>
+  </nav>
+  <div class="top-right"><a class="btn sm" id="m09" target="_blank" rel="noopener">模組09 廣度 ↗</a> <a class="btn sm" id="m01" target="_blank" rel="noopener">模組01 帳本 ↗</a></div>
+</header>
+<main id="view"><div class="empty">載入中…</div></main>
+<footer class="disc">資料供參考，非投資建議。各數字標示來源、資料日期與版本日期；不提供經濟預測、衰退機率或多空總分。</footer>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
